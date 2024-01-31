@@ -1,5 +1,21 @@
+import Header from "@/components/header";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 import Image from "next/image";
 
 export default function Home() {
-    return <h1>fsw</h1>;
+    return (
+        <div>
+          <Header />
+
+          <div className="px-5 pt-5">
+                <h2 className="text-xl font-bold">Olá, Miguel!</h2>
+                <p className="capitalize text-sm">
+                {format(new Date(), "EEEE',' dd 'de' MMMM", {
+                    locale: ptBR,
+                })}
+                </p>
+            </div>
+        </div>
+      );
 }
