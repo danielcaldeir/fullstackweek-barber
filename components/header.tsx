@@ -1,20 +1,21 @@
-"use client";
+// "use client";
 
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CalendarIcon, HomeIcon, LogInIcon, LogOutIcon, MenuIcon, UserIcon } from "lucide-react";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import Link from "next/link";
+// import { CalendarIcon, HomeIcon, LogInIcon, LogOutIcon, MenuIcon, UserIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
+// import { signIn, signOut, useSession } from "next-auth/react";
+// import { Avatar, AvatarImage } from "@/components/ui/avatar";
+// import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+// import Link from "next/link";
+import SideMenu from "./side-menu";
 
 const Header = () => {
-  const { data, status } = useSession();
-
-  const handleLogoutClick = async () =>{ await signOut()};
-
-  const handleLoginClick = async () => { await signIn("google")};
+  // const { data, status } = useSession();
+  // const handleLogoutClick = async () =>{ await signOut()};
+  // const handleLoginClick = async () => { await signIn("google")};
 
   return (
     <Card>
@@ -29,6 +30,7 @@ const Header = () => {
           </SheetTrigger>
 
           <SheetContent className="p-0">
+            {/* 
             <SheetHeader className="text-left border-b border-solid border-secondary p-5">
               <SheetTitle>Menu</SheetTitle>
             </SheetHeader>
@@ -39,7 +41,6 @@ const Header = () => {
                     <Avatar>
                       <AvatarImage src={data.user?.image ?? ""} />
                     </Avatar>
-
                     <h2 className="font-bold">{data.user.name}</h2>
                   </div>
                   <Button variant="secondary" size="icon">
@@ -67,7 +68,6 @@ const Header = () => {
                   Início
                 </Link>
               </Button>
-
               {data?.user && (
                 <Button variant="outline" className="justify-start" asChild>
                   <Link href="/bookings">
@@ -76,8 +76,9 @@ const Header = () => {
                   </Link>
                 </Button>
               )}
-
-            </div>
+            </div> 
+            */}
+            <SideMenu />
           </SheetContent>
         </Sheet>
       </CardContent>
