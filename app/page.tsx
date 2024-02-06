@@ -2,12 +2,13 @@ import BarbershopItem from "@/components/barbershop-item";
 import BookingItem from "@/components/booking-item";
 import Header from "@/components/header";
 import Search from "@/components/search";
+import { authOptions } from "@/lib/auth";
 import { db } from "@/lib/prisma";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+// import { authOptions } from "./api/auth/[...nextauth]/route";
 
 export default async function Home() {
     // chamar prisma e pegar barbearias
@@ -72,7 +73,9 @@ export default async function Home() {
 
                 <div className="flex px-5 gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
                 {barbershops.map((barbershop) => (
-                    <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+                    <div key={barbershop.id} className="min-w-[167px] max-w-[167px]">
+                        <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+                    </div>
                 ))}
                 </div>
             </div>
